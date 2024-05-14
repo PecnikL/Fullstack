@@ -1,0 +1,14 @@
+sequenceDiagram
+    participant browser
+    participant server
+    
+    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+
+    activate server
+    
+    Note right of browser: When the button on the form is clicked, the browser will send the user input to the server. 
+    Note right of browser: The browser adds the new note to the json file and redraws the notes list on the page.
+    Note right of server: The Server creates a new note object.
+    
+    server-->>browser: The server responds with HTTP status code 201 - created. 
+    deactivate server
